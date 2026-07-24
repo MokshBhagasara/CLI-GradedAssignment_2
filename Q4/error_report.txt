@@ -1,0 +1,4 @@
+ERROR: Database connection failed
+ERROR: Disk space low
+ERROR: File not found
+ERROR: New crash detected

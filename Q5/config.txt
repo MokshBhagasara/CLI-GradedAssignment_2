@@ -1,0 +1,5 @@
+server_name=production
+port=8080
+database=mydb
+password=secret123
+max_connections=100

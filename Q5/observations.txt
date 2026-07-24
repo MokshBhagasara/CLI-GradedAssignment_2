@@ -1,0 +1,27 @@
+1. vi config.txt
+This command opened the text editor to create the configuration file.
+
+2. kill -9 $(pgrep vi)
+This command forcefully killed the vi process to simulate a system crash before the file was saved.
+
+3. ls -la .config.txt.swp
+This command showed the swap file that vi automatically created. Vi creates a hidden swap file (.filename.swp) while editing to store unsaved changes.
+
+4. vi -r config.txt
+This command recovered the unsaved changes from the swap file. The -r flag tells vi to use the swap file for recovery.
+
+5. cat config.txt
+This command verified that the recovered file contained the unsaved changes.
+
+6. rm .config.txt.swp
+This command removed the swap file after recovery was complete.
+
+7. Recovery Mechanisms in Vi
+- Swap files: Vi creates a .swp file while editing that stores changes in real time. This is the most reliable recovery method because it works automatically even after a crash. Recovery is done using vi -r filename.
+- Undo history: The u key undoes changes and Ctrl+r redoes them (Screenshot:9 to 12). This only works during the current editing session and is lost after closing vi.
+- Registers: Vi stores copied and deleted text in registers. These are temporary and only available during the current session.(Screenshot:13)
+- Backup files: Some vi configurations create a backup of the original file before editing. This depends on settings and is not enabled by default.
+- Auto-recovery: Vi periodically updates the swap file so even if the system crashes, recent changes are preserved.
+
+8. Most Reliable Strategy
+Swap file recovery is the most reliable because it happens automatically without any setup, survives system crashes, and preserves changes made up to the last few seconds before the crash. The other methods only work within a running session.

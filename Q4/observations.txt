@@ -1,0 +1,29 @@
+1. nano sample.log
+This command created a sample log file with INFO, ERROR, and WARNING entries.
+
+2. nano log_monitor.sh
+This command created the monitoring script.
+
+3. chmod +x log_monitor.sh
+This command made the script executable.
+
+4. ./log_monitor.sh sample.log
+This command ran the script which extracted ERROR messages to error_report.txt and started real-time monitoring using tail -f piped to grep.
+
+5. echo "ERROR: New crash detected" >> sample.log
+This command added a new error entry to the log file from a second terminal to test real-time monitoring.
+
+6. cat error_report.txt
+This command displayed the error report containing all extracted ERROR messages.
+
+7. grep "ERROR" sample.log
+This command filtered the log file to show only ERROR lines. The pipe operator passes output of one command as input to another.
+
+8. tail -5 sample.log
+This command showed the last 5 lines of the log. tail -f follows the file in real time as new lines are added.
+
+9. grep -v "ERROR" sample.log > /dev/null
+This command filtered non-error lines and redirected them to /dev/null which discards the output. This suppresses unnecessary output and improves efficiency.
+
+10. Explanation
+Pipes (|) connect the output of one command to the input of another, allowing us to chain tail and grep together. grep filters lines matching a pattern like ERROR. tail -f follows a file and displays new lines as they are added. Redirection (> and >>) sends output to files instead of the screen. /dev/null is a special file that discards anything written to it, used to suppress unnecessary output.

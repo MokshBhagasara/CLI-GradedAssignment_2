@@ -1,0 +1,14 @@
+1. nano file_manager.c
+This command opened the text editor to create the C program for file processing.
+
+2. gcc file_manager.c -o file_manager
+This command compiled the C source code into an executable binary.
+
+3. ./file_manager
+This command ran the program which created a file called employees.dat, wrote 3 employee records, updated Bob's salary without rewriting the entire file, and retrieved Charlie's record by seeking directly to his position.
+
+4. ls -la employees.dat
+This command confirmed the data file was created and showed its size.
+
+5. Explanation
+open() creates or opens a file and returns a file descriptor. write() writes data to the file at the current position. read() reads data from the file at the current position. lseek() moves the file pointer to a specific position so we can update or retrieve a specific record without reading the whole file. close() closes the file descriptor and releases the resource. Together these system calls allow direct low-level file access without using standard library functions like fopen or fprintf.

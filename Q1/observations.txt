@@ -1,0 +1,26 @@
+1. mkdir -p ./submissions
+This command created the submissions directory to store student files.
+
+2. echo "content" > ./submissions/filename.txt
+This command created sample submission files with some having identical content to simulate duplicates.
+
+3. ls -la ./submissions/
+This command listed all files in the submissions directory to verify they were created.
+
+4. nano submission_manager.sh
+This command opened the text editor to create the shell script.
+
+5. chmod +x submission_manager.sh
+This command made the script executable so it can be run.
+
+6. ./submission_manager.sh
+This command ran the script which identified 2 duplicate files, backed up 3 unique files, and saved the report to report.txt. Errors were stored in errors.log using 2>> redirection.
+
+7. cat report.txt
+This command displayed the report showing the number of files processed, duplicated, and backed up.
+
+8. cat errors.log
+This command checked the error log file. It was empty meaning no errors occurred.
+
+9. ls backup_unique/
+This command listed the backup folder confirming only unique submissions were copied.

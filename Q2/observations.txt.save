@@ -1,0 +1,14 @@
+1. nano process_manager.c
+This command opened the text editor to create the C program for process management.
+
+2. gcc process_manager.c -o process_manager
+This command compiled the C source code into an executable binary.
+
+3. ./process_manager
+This command ran the program which created 3 child processes using fork(). Child 1 and Child 3 completed normally. Child 2 was unresponsive so the parent killed it using SIGKILL. The parent used waitpid() to collect all exit statuses and prevent zombie processes.
+
+4. ps aux | grep process_manager
+This command verified that no zombie or leftover processes remained after execution.
+
+5. Explanation
+fork() creates a new child process by duplicating the parent. waitpid() with WNOHANG checks if a child has exited without blocking the parent. If a child is still running after a timeout, kill() sends SIGKILL to terminate it. Calling waitpid() after kill() collects the exit status and prevents the child from becoming a zombie process. Together these three mechanisms allow the parent to create, monitor, and clean up child processes.
